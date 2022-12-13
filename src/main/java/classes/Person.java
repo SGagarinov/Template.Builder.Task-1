@@ -3,10 +3,10 @@ package classes;
 import java.util.Objects;
 
 public class Person {
-    protected final String name;
-    protected final String surname;
-    protected Integer age;
-    protected String address;
+    private final String name;
+    private final String surname;
+    private Integer age;
+    private String address;
 
     public Person(String name, String surname) {
         this.name = name;
@@ -18,7 +18,7 @@ public class Person {
         this.age = age;
     }
 
-    Person(PersonBuilder personBuilder) {
+    public Person(PersonBuilder personBuilder) {
         name = personBuilder.getName();
         surname = personBuilder.getSurname();
         age = personBuilder.getAge();
@@ -30,7 +30,7 @@ public class Person {
     }
 
     public boolean hasAddress() {
-        return address != null || !address.equals("");
+        return address != null && !"".equals(address);
     }
 
     public String getName() {
